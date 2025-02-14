@@ -4,9 +4,12 @@
 <p>
   Bienvenidos a mi primera aplicación de Angular version {{ angularVersion }}
 </p>
-<p>counter: {{counter}}</p>
+<p>counter: {{ counter }}</p>
 <button (click)="incrementBy(+1)">+</button>
 <button (click)="resetCounter()">reset</button>
 <button (click)="incrementBy(-1)">-</button>
+
+<hr>
+<app-counter/>
 
 <router-outlet/>
