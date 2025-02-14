@@ -7,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = '02-angular-bases';
+  public title: string = '02-angular-bases';
+  public angularVersion: number = 19;
 }
