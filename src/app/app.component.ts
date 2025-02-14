@@ -9,13 +9,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public title: string = '02-angular-bases';
   public angularVersion: number = 19;
-  public counter: number = 0;
-
-  incrementBy(value: number): void {
-    this.counter += value;
-  }
-
-  resetCounter() {
-    this.counter = 0;
-  }
 }
