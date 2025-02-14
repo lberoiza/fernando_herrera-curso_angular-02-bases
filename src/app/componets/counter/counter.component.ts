@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 @Component({
   standalone: false,
   selector: 'app-counter',
-  template: `<h2>Counter works!</h2>`,
+  templateUrl: './counter.component.html',
 })
 export class CounterComponent {
   public counter: number = 0;
