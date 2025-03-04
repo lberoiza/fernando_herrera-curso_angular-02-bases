@@ -15,10 +15,13 @@
    <dd> {{ hero().name | uppercase }} </dd>
 </dl>
 
-<button (click)="changeHero()" class="btn btn-primary mx-2">
-  Cambiar héroe
-</button>
+<app-button-bar>
+  <button (click)="changeHero()" class="btn btn-primary mx-2">
+    Cambiar héroe
+  </button>
+  <button class="btn btn-primary" (click)="changeAge()">Cambiar edad</button>
+  <button (click)="resetForm()" class="btn btn-primary mx-2">Reset</button>
+</app-button-bar>
 
-<button class="btn btn-primary" (click)="changeAge()">Cambiar edad</button>
 
-<button (click)="resetForm()" class="btn btn-primary mx-2">Reset</button>
+

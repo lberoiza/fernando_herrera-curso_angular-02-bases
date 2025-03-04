@@ -1,12 +1,14 @@
 import { Component, computed, signal, WritableSignal } from '@angular/core';
 import { Hero } from '../../models/Hero.model';
 import { TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { ButtonBarComponent } from '../../components/button-bar/button-bar.component';
 
 @Component({
   selector: 'app-hero-page',
   imports: [
     UpperCasePipe,
-    TitleCasePipe
+    TitleCasePipe,
+    ButtonBarComponent
   ],
   templateUrl: './hero-page.component.html',
   styleUrl: './hero-page.component.css'
