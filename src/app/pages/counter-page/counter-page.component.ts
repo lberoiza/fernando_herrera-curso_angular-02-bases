@@ -1,10 +1,16 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-counter-page',
   imports: [],
   templateUrl: './counter-page.component.html',
-  styleUrl: './counter-page.component.css'
+  styleUrl: './counter-page.component.css',
+
+  // using OnPush change detection strategy,
+  // that means the library zone.js will not be used in this component
+  // and the change detection will be done by Angular itself
+  // the component will be not render updates from counter
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CounterPageComponent {
   protected counter: number = 0;
