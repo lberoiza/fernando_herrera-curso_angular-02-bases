@@ -1,0 +1,25 @@
+:host {
+  --transition-time: 0.3s;
+  --transition-color: blue;
+
+  display: flex;
+  margin-top: 1rem;
+  gap: 1rem;
+
+}
+
+::ng-deep button {
+  font-weight: bold;
+  padding: 0.5rem;
+  width: 5rem;
+  border-radius: 0.3rem;
+  border: 2px solid black;
+  transition: all var(--transition-time) ease-in-out;
+}
+
+::ng-deep button:hover {
+  cursor: pointer;
+  color: var(--transition-color);
+  border-color: var(--transition-color);
+  translate: 0 -0.5rem;
+}
