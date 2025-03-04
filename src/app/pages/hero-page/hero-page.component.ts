@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal, WritableSignal } from '@angular/core';
 import { Hero } from '../../models/Hero.model';
 import { TitleCasePipe, UpperCasePipe } from '@angular/common';
 
@@ -23,11 +23,8 @@ export class HeroPageComponent {
     age: 22
   }
 
-  hero = signal<Hero>(this.copyHero(this.ironMan));
-
-  getHeroDescription() {
-    return `${this.hero().name} is ${this.hero().age} years old`;
-  }
+  hero: WritableSignal<Hero> = signal<Hero>(this.copyHero(this.ironMan));
+  heroDescription = computed(() => `${this.hero().name} is ${this.hero().age} years old`);
 
   changeHero() {
     this.hero.set(this.copyHero(this.spiderman));
