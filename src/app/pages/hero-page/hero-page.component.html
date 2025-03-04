@@ -1,16 +1,16 @@
 <h1>{{ hero().name | titlecase }}</h1>
 
 <dl>
-  <td>Nombre:</td>
+  <dt>Nombre:</dt>
   <dd>{{ hero().name }}</dd>
 
-  <td>Edad:</td>
+  <dt>Edad:</dt>
   <dd>{{ hero().age }}</dd>
 
-  <td>Método:</td>
+  <dt>Método:</dt>
   <dd>{{ heroDescription() }}</dd>
 
-  <td>Capitalizado:</td>
+  <dt>Capitalizado:</dt>
   <!-- ! Intentar  -->
    <dd> {{ hero().name | uppercase }} </dd>
 </dl>
