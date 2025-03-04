@@ -3,10 +3,13 @@
 <p>Counter Current Value: {{ counter }}</p>
 <p><strong>Counter Value with Signal</strong>: {{ counterSignal() }}</p>
 
-<div class="button-bar">
+<!--<div class="button-bar">-->
+<app-button-bar>
   <button (click)="increaseBy(+1)">+1</button>
   <button (click)="resetCounter()">Reset</button>
   <button (click)="increaseBy(-1)">-1</button>
-</div>
+</app-button-bar>
+
+<!--</div>-->
 
 

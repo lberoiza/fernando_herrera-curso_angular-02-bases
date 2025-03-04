@@ -1,8 +1,11 @@
 import { ChangeDetectionStrategy, Component, signal, WritableSignal } from '@angular/core';
+import { ButtonBarComponent } from '../../components/button-bar/button-bar.component';
 
 @Component({
   selector: 'app-counter-page',
-  imports: [],
+  imports: [
+    ButtonBarComponent
+  ],
   templateUrl: './counter-page.component.html',
   styleUrl: './counter-page.component.css',
 
