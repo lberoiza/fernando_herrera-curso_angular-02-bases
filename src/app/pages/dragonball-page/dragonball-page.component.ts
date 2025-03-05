@@ -1,9 +1,12 @@
 import { Component, signal, WritableSignal } from '@angular/core';
 import { DragonballCharacter } from '../../models/DragonballCharacter';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-dragonball-page',
-  imports: [],
+  imports: [
+    NgClass
+  ],
   templateUrl: './dragonball-page.component.html',
   styleUrl: './dragonball-page.component.css'
 })
@@ -17,4 +20,15 @@ export class DragonballPageComponent {
     {id: 5, name: 'Krillin', power: 2000},
   ])
 
+  getPowerClass(power: number) {
+    return {
+      'text-danger': power >= 8000,
+      'text-warning': power >= 6000 && power < 8000,
+      'text-info': power >= 4000 && power < 6000,
+    };
+  }
+
+  isGoku(name: string) {
+    return name.toUpperCase() === 'GOKU';
+  }
 }
