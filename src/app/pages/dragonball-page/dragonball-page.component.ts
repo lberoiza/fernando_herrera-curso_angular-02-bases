@@ -18,6 +18,7 @@ export class DragonballPageComponent {
     {id: 3, name: 'Gohan', power: 6000},
     {id: 4, name: 'Piccolo', power: 4000},
     {id: 5, name: 'Krillin', power: 2000},
+    {id: 6, name: 'Yamcha', power: 500},
   ])
 
   getPowerClass(power: number) {
@@ -30,5 +31,10 @@ export class DragonballPageComponent {
 
   isGoku(name: string) {
     return name.toUpperCase() === 'GOKU';
+  }
+
+  hasEnoughPower(power: number) {
+    return power >= 2000;
+
   }
 }

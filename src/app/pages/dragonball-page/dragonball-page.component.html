@@ -19,11 +19,14 @@
         let odd = $odd;
         let even = $even;
         ) {
-        <li class="list-group-item" [class.list-group-item-primary]="even" [class.list-group-item-secondary]="odd">
-          <span [class.text-success]="isGoku(character.name)">{{ idx + 1 }}.- {{ character.name }}</span>
-          <strong [ngClass]="getPowerClass(character.power)"> ({{ character.power }})</strong>
-        </li>
+        @if (hasEnoughPower(character.power)) {
+          <li class="list-group-item" [class.list-group-item-primary]="even" [class.list-group-item-secondary]="odd">
+            <span [class.text-success]="isGoku(character.name)">{{ idx + 1 }}.- {{ character.name }}</span>
+            <strong [ngClass]="getPowerClass(character.power)"> ({{ character.power }})</strong>
+          </li>
+        }
       }
+
     </ol>
   </div>
 
