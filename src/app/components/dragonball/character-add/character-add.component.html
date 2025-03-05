@@ -1,0 +1,31 @@
+<h3>
+  <span>Agregar: </span>
+  @if (newCharacterName().trim().length > 0) {
+    <span>{{ newCharacterPreview() }}</span>
+  }
+</h3>
+
+<input
+  type="text"
+  class="form-control"
+  placeholder="Nombre"
+  [value]="newCharacterName()"
+  (input)="newCharacterName.set(inputNewCharacterName.value)"
+  #inputNewCharacterName
+>
+
+
+<input
+  type="number"
+  class="form-control mt-2"
+  placeholder="poder"
+  [value]="newCharacterPower()"
+  (input)="newCharacterPower.set(+inputNewCharacterPower.value)"
+  #inputNewCharacterPower
+>
+
+<button
+  class="btn btn-primary mt-2"
+  (click)="addCharacter()"
+>Agregar
+</button>
