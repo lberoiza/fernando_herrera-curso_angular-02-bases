@@ -12,15 +12,15 @@
 
   <dt>Capitalizado:</dt>
   <!-- ! Intentar  -->
-   <dd> {{ hero().name | uppercase }} </dd>
+  <dd> {{ hero().name | uppercase }}</dd>
 </dl>
 
 <app-button-bar>
-  <button (click)="changeHero()" class="btn btn-primary mx-2">
+  <button (click)="changeHero()">
     Cambiar héroe
   </button>
-  <button class="btn btn-primary" (click)="changeAge()">Cambiar edad</button>
-  <button (click)="resetForm()" class="btn btn-primary mx-2">Reset</button>
+  <button (click)="changeAge()">Cambiar edad</button>
+  <button (click)="resetForm()">Reset</button>
 </app-button-bar>
 
 
