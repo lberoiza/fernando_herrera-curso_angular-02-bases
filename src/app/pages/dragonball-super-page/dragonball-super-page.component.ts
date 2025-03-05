@@ -1,12 +1,12 @@
 import { Component, computed, signal, WritableSignal } from '@angular/core';
-import { DragonballCharacter } from '../../models/DragonballCharacter';
-import { NgClass } from '@angular/common';
+import type { DragonballCharacter } from '../../models/DragonballCharacter';
+import { DragonballCharacterListComponent } from '../../components/dragonball/character-list/character-list.component';
 
 @Component({
   selector: 'app-dragonball-super-page',
   templateUrl: './dragonball-super-page.component.html',
   imports: [
-    NgClass
+    DragonballCharacterListComponent
   ],
   styleUrl: './dragonball-super-page.component.css'
 })
@@ -23,25 +23,6 @@ export class DragonballSuperPageComponent {
 
   newCharacterPreview = computed(() => `${this.newCharacterName()} (${this.newCharacterPower()})`);
 
-
-  getPowerClass(power: number) {
-    return {
-      'text-danger': power >= 8000,
-      'text-warning': power >= 6000 && power < 8000,
-      'text-info': power >= 4000 && power < 6000,
-    };
-  }
-
-  isGoku(name: string) {
-    return name.toUpperCase() === 'GOKU';
-  }
-
-  hasEnoughPower(power: number) {
-    return power >= 1000;
-
-  }
-
-  protected readonly Number = Number;
 
   addCharacter() {
     if (!this.newCharacterName().trim() || this.newCharacterPower() <= 0) {
@@ -61,5 +42,4 @@ export class DragonballSuperPageComponent {
     this.newCharacterName.set('');
     this.newCharacterPower.set(0);
   }
-
 }

@@ -1,5 +1,5 @@
 import { Component, computed, signal, WritableSignal } from '@angular/core';
-import { DragonballCharacter } from '../../models/DragonballCharacter';
+import type { DragonballCharacter } from '../../models/DragonballCharacter';
 import { NgClass } from '@angular/common';
 
 @Component({

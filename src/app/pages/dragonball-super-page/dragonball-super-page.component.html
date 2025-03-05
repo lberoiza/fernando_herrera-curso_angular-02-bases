@@ -25,7 +25,7 @@
       class="form-control mt-2"
       placeholder="poder"
       [value]="newCharacterPower()"
-      (input)="newCharacterPower.set(Number(inputNewCharacterPower.value))"
+      (input)="newCharacterPower.set(+inputNewCharacterPower.value)"
       #inputNewCharacterPower
     >
 
@@ -38,24 +38,7 @@
 
 
   <div class="col-12 col-sm-6">
-    <h3>Listado</h3>
-    <ol class="list-group">
-      @for (character of characters();
-        track character.id;
-        let idx = $index;
-        let odd = $odd;
-        let even = $even;
-        ) {
-        @if (hasEnoughPower(character.power)) {
-          <li class="list-group-item" [class.list-group-item-primary]="even" [class.list-group-item-secondary]="odd">
-            <input type="hidden" [value]="character.id">
-            <span [class.text-success]="isGoku(character.name)">{{ idx + 1 }}.- {{ character.name }}</span>
-            <strong [ngClass]="getPowerClass(character.power)"> ({{ character.power }})</strong>
-          </li>
-        }
-      }
-
-    </ol>
+    <app-dragonball-character-list [title]="'Personajes Fuertes'" [characters]="characters()"/>
   </div>
 
 
