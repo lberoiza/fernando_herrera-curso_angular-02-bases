@@ -13,8 +13,17 @@
   <div class="col-12 col-sm-6">
     <h3>Listado</h3>
     <ol class="list-group">
-      <li class="list-group-item">Goku - 10000</li>
-      <li class="list-group-item">Vegeta - 9000</li>
+      @for (character of characters();
+        track character.id;
+        let idx = $index;
+        let odd = $odd;
+        let even = $even;
+        ) {
+        <li class="list-group-item">
+          <span>{{ idx + 1 }}.- {{ character.name }}</span>
+          <strong class="text-danger"> ({{ character.power }})</strong>
+        </li>
+      }
     </ol>
   </div>
 
