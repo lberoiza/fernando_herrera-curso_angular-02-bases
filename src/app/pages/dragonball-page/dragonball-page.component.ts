@@ -1,4 +1,4 @@
-import { Component, signal, WritableSignal } from '@angular/core';
+import { Component, computed, signal, WritableSignal } from '@angular/core';
 import { DragonballCharacter } from '../../models/DragonballCharacter';
 import { NgClass } from '@angular/common';
 
@@ -17,9 +17,15 @@ export class DragonballPageComponent {
     {id: 2, name: 'Vegeta', power: 8000},
     {id: 3, name: 'Gohan', power: 6000},
     {id: 4, name: 'Piccolo', power: 4000},
-    {id: 5, name: 'Krillin', power: 2000},
     {id: 6, name: 'Yamcha', power: 500},
   ])
+
+  newCharacterName = signal<string>('');
+  newCharacterPower = signal<number>(0);
+
+
+  newCharacterPreview = computed(() => `${this.newCharacterName()} (${this.newCharacterPower()})`);
+
 
   getPowerClass(power: number) {
     return {
@@ -34,7 +40,29 @@ export class DragonballPageComponent {
   }
 
   hasEnoughPower(power: number) {
-    return power >= 2000;
+    return power >= 1000;
 
   }
+
+  protected readonly Number = Number;
+
+  addCharacter() {
+    if (!this.newCharacterName().trim() || this.newCharacterPower() <= 0) {
+      console.error('No name or Not enough Power!');
+      return;
+    }
+    const newCharacter: DragonballCharacter = {
+      id: this.characters().reduce((max, character) => character.id > max ? character.id : max, 0) + 1,
+      name: this.newCharacterName().trim(),
+      power: this.newCharacterPower()
+    }
+    this.characters.update(currentList => [...currentList, newCharacter]);
+    this.resetFields();
+  }
+
+  resetFields() {
+    this.newCharacterName.set('');
+    this.newCharacterPower.set(0);
+  }
+
 }
