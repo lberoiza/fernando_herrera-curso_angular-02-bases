@@ -1,0 +1,62 @@
+<h1>Dragonball Information</h1>
+<hr>
+
+<section class="row">
+  <div class="col-12 col-sm-6 mb-3">
+    <h3>
+      <span>Agregar: </span>
+      @if (newCharacterName().trim().length > 0) {
+        <span>{{ newCharacterPreview() }}</span>
+      }
+    </h3>
+
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Nombre"
+      [value]="newCharacterName()"
+      (input)="newCharacterName.set(inputNewCharacterName.value)"
+      #inputNewCharacterName
+    >
+
+
+    <input
+      type="number"
+      class="form-control mt-2"
+      placeholder="poder"
+      [value]="newCharacterPower()"
+      (input)="newCharacterPower.set(Number(inputNewCharacterPower.value))"
+      #inputNewCharacterPower
+    >
+
+    <button
+      class="btn btn-primary mt-2"
+      (click)="addCharacter()"
+    >Agregar
+    </button>
+  </div>
+
+
+  <div class="col-12 col-sm-6">
+    <h3>Listado</h3>
+    <ol class="list-group">
+      @for (character of characters();
+        track character.id;
+        let idx = $index;
+        let odd = $odd;
+        let even = $even;
+        ) {
+        @if (hasEnoughPower(character.power)) {
+          <li class="list-group-item" [class.list-group-item-primary]="even" [class.list-group-item-secondary]="odd">
+            <input type="hidden" [value]="character.id">
+            <span [class.text-success]="isGoku(character.name)">{{ idx + 1 }}.- {{ character.name }}</span>
+            <strong [ngClass]="getPowerClass(character.power)"> ({{ character.power }})</strong>
+          </li>
+        }
+      }
+
+    </ol>
+  </div>
+
+
+</section>
