@@ -3,12 +3,12 @@
 
 <section class="row">
   <div class="col-12 col-sm-6 mb-3">
-    <app-dragonball-character-add (newCharacterEvent)="saveCharacter($event)"/>
+    <app-dragonball-character-add (newCharacterEvent)="dragonballCharacterService.saveCharacter($event)"/>
   </div>
 
 
   <div class="col-12 col-sm-6">
-    <app-dragonball-character-list [title]="'Personajes Fuertes'" [characters]="characters()"/>
+    <app-dragonball-character-list [title]="'Personajes Fuertes'" [characters]="dragonballCharacterService.characters()"/>
   </div>
 
 
