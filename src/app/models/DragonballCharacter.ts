@@ -1,5 +1,5 @@
 export interface DragonballCharacter {
-  id: number;
+  id: string;
   name: string
   power: number
 }

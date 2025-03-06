@@ -23,7 +23,7 @@ export class CharacterAddComponent {
     }
 
     const newCharacter: DragonballCharacter = {
-      id: Math.random() + 1000,
+      id: crypto.randomUUID(),
       name: this.newCharacterName().trim(),
       power: this.newCharacterPower()
     }

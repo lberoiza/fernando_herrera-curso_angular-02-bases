@@ -13,11 +13,11 @@ import { NgClass } from '@angular/common';
 export class DragonballPageComponent {
 
   characters: WritableSignal<DragonballCharacter[]> = signal<DragonballCharacter[]>([
-    {id: 1, name: 'Goku', power: 9000},
-    {id: 2, name: 'Vegeta', power: 8000},
-    {id: 3, name: 'Gohan', power: 6000},
-    {id: 4, name: 'Piccolo', power: 4000},
-    {id: 6, name: 'Yamcha', power: 500},
+    {id: 'f481537c-a9eb-4423-997a-a173a1914e01', name: 'Goku', power: 9000},
+    {id: 'cad8d366-2bb6-4237-ae93-207f9ce836d6', name: 'Vegeta', power: 8000},
+    {id: '2a6bf327-0cd0-4d48-8b29-27f02de85fd6', name: 'Gohan', power: 6000},
+    {id: '24c879a0-663d-4998-9905-6b847547dd69', name: 'Piccolo', power: 4000},
+    {id: 'a7aaf148-9eca-4f6c-8cde-3001d9f5f488', name: 'Yamcha', power: 500},
   ])
 
   newCharacterName = signal<string>('');
@@ -52,7 +52,7 @@ export class DragonballPageComponent {
       return;
     }
     const newCharacter: DragonballCharacter = {
-      id: this.characters().reduce((max, character) => character.id > max ? character.id : max, 0) + 1,
+      id: crypto.randomUUID(),
       name: this.newCharacterName().trim(),
       power: this.newCharacterPower()
     }
